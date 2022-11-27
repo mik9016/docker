@@ -2,16 +2,15 @@
   <div>
     <h1>Hallo</h1>
     <p>{{text}}</p>
-    <p>{{backendData.msg}}</p>
+    <h2>Data from Backend:</h2>
+    <p v-if="backendData?.msg">{{backendData.msg}}</p>
+    <p v-else>No data available</p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
-  mounted() {
-    console.log("Mik")
-    },
   async asyncData() {
     const url = 'http://host.docker.internal:8080/'
     let text;
